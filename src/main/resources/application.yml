@@ -1,41 +1,13 @@
-#server:
-#  port: 8761
 spring:
-  # application:
-  #   name: discovery-server
+  application:
+    name: discovery-server
   config:
     import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
   profiles:
     active: dev
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    # serviceUrl:
-    #   defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-  server:
-    wait-time-in-ms-when-sync-empty: 0
-
-# eureka:
-#   instance:
-#     prefer-ip-address: true
-#   client:
-#     registerWithEureka: false
-#     fetchRegistry: false
-
-#   server:
-#     wait-time-in-ms-when-sync-empty: 0
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
 
 
-# Avoid some debugging logs at startup
-logging:
-  level:
-    org:
-      springframework:
-        boot: INFO
-        web: INFO
 
