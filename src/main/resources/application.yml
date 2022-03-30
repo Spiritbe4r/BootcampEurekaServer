@@ -1,8 +1,8 @@
 #server:
 #  port: 8761
 spring:
-  application:
-    name: discovery-server
+  # application:
+  #   name: discovery-server
   config:
     import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
   profiles:
@@ -14,8 +14,8 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    # serviceUrl:
+    #   defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
   server:
     wait-time-in-ms-when-sync-empty: 0
